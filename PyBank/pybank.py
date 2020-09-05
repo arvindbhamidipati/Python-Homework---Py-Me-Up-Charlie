@@ -41,3 +41,22 @@ with open(budget_data, newline="") as csvfile:
     #for rows in csvreader:
     #    Total.append(int(rows[1]))
     #print(print("Total: $" + str(sum(Total))))
+
+    #The average of the changes in "Profit/Losses" over the entire period
+    #find the montly changes
+    monthly_change = []
+    prev_month = 0
+    for r in range(len(Total)):
+        if(r == 0):
+            prev_month = Total[r]
+        else:
+            monthly_difference = Total[r] - prev_month
+            monthly_change.append(monthly_difference)
+            prev_month = Total[r]
+
+    #calculate the Average
+    length_montly_change = len(monthly_change)
+    sum_of_montly_change = sum(monthly_change)
+    total_average = sum_of_montly_change / length_montly_change
+
+    print("Average of changes in Profit/Losses: $", str(total_average))
