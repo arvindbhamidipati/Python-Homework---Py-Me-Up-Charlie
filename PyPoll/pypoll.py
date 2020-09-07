@@ -25,6 +25,8 @@ with open(budget_data, newline="") as csvfile:
     otooley_counter = 0
     other_counter = 0
 
+    #calculate how many votes each candidate got
+
     for candidate in range(len(candidate_total)):
         if(candidate_total[candidate] == "Khan"):
             khan_counter = khan_counter + 1
@@ -37,8 +39,18 @@ with open(budget_data, newline="") as csvfile:
         else:
             other_counter == other_counter + 1
 
-    print("Khan: ", str(khan_counter))
-    print("Correy: ", str(correy_counter))
-    print("Li: ", str(li_counter))
-    print("O'Tooley: ", str(otooley_counter))
-    print("Other: ", str(other_counter))
+    #calculate percentages
+    percentage_of_Votes_Khan = khan_counter / num_of_votes
+    percentage_of_Votes_Correy = correy_counter / num_of_votes
+    percentage_of_Votes_Li = li_counter / num_of_votes
+    percentage_of_Votes_Otooley = otooley_counter / num_of_votes
+
+    print("Khan: ", "{:.0%}".format(percentage_of_Votes_Khan), "(", str(khan_counter), ")")
+    print("Correy: ", "{:.0%}".format(percentage_of_Votes_Correy), "(", str(correy_counter), ")")
+    print("Li: ", "{:.0%}".format(percentage_of_Votes_Li), "(", str(li_counter), ")")
+    print("O'Tooley: ", "{:.0%}".format(percentage_of_Votes_Otooley), "(", str(otooley_counter), ")")
+
+    print("-------------------------")
+
+    winner_counter = [khan_counter, correy_counter, li_counter, otooley_counter, other_counter]
+    print(str(max[candidate_total]))
