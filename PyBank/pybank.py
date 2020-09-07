@@ -1,23 +1,3 @@
-#import pandas as pd
-#import csv
-#budgetdata_csv = "Resources/budget_data.csv"
-
-#budgetdata_df = pd.read_csv(budgetdata_csv)
-#print(budgetdata_df.head(10))
-
-
-#The total number of months included in the dataset - each row is 1 month
-#num_of_Rows = len(budgetdata_df)
-#print("Number of Months: ", str(num_of_Rows))
-
-#The net total amount of "Profit/Losses" over the entire period
-#total = budgetdata_df['Profit/Losses'].sum()
-#print("Total Amount: ", str(total))
-
-#The average of the changes in "Profit/Losses" over the entire period
-#average = budgetdata_df["Profit/Losses"].mean()
-#print("Average changes: ", str(average))
-
 import os
 import csv
 
@@ -72,4 +52,17 @@ with open(budget_data, newline="") as csvfile:
     print("Greatest increase in profits: ", greatest_increase_month, " $", str(greatest_increase_rev))
     print("Greatest decrease in profits: ", greatest_decrease_month, " $", str(greatest_decrease_rev))
 
-    
+
+    output_file = open("output.txt", "w")
+    newline1 = "Financial Analysis"
+    newline2 = "---------------------"
+    #print("Total months: ", str(len(months)))
+    #print("Total: $" + str(sum(Total)))
+    newline3 = "Total months: " + str(len(months))
+    newline4 = "Total: $" + str(sum(Total))
+    #print("Average of changes in Profit/Losses: $", str(formatted_total_average))
+    newline5 = "Average of changes in Profit/Losses: $" + str(formatted_total_average)
+    newline6 = "Greatest increase in profits: " + greatest_increase_month + " $" + str(greatest_increase_rev)
+    newline7 = "Greatest decrease in profits: " + greatest_decrease_month + " $" + str(greatest_decrease_rev)
+    #{}\n breaks to new line
+    output_file.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(newline1,newline2,newline3, newline4,newline5,newline6,newline7))
