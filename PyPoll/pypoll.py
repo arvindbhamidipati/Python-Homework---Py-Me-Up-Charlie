@@ -85,4 +85,4 @@ with open(budget_data, newline="") as csvfile:
     newline9 = "---------------------"
     newline10 = "Winner is: " + winner
     #{}\n breaks to new line
-    output_file.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(newline1,newline2,newline3, newline4,newline5,newline6,newline7,newline8,newline9,newline10))
+    output_file.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(newline1,newline2,newline3, newline4,newline5,newline6,newline7,newline8,newline9,newline10))
