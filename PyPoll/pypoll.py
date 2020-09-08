@@ -24,7 +24,7 @@ with open(budget_data, newline="") as csvfile:
     li_counter = 0
     otooley_counter = 0
     other_counter = 0
-
+    max_votes = ""
     #calculate how many votes each candidate got
 
     for candidate in range(len(candidate_total)):
@@ -52,5 +52,20 @@ with open(budget_data, newline="") as csvfile:
 
     print("-------------------------")
 
-    winner_counter = [khan_counter, correy_counter, li_counter, otooley_counter, other_counter]
-    print(str(max[candidate_total]))
+    #finding winning candidates
+    most_votes = 0
+
+    new_dict = {}
+    keys = ["Khan", "Correy", "Li", "O'Tooley"]
+    values = [khan_counter, correy_counter, li_counter, otooley_counter]
+
+    for key in keys:
+        for value in values:
+            new_dict[key] = value
+            values.remove(value)
+            break
+
+    #print ("dict: " + str(new_dict))
+    winner = max(new_dict, key = new_dict.get)
+
+    print("Winner is: ", winner)
