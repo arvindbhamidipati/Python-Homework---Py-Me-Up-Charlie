@@ -69,3 +69,20 @@ with open(budget_data, newline="") as csvfile:
     winner = max(new_dict, key = new_dict.get)
 
     print("Winner is: ", winner)
+
+    output_file = open("output.txt", "w")
+    newline1 = "Election Results"
+    newline2 = "---------------------"
+    #print("Total months: ", str(len(months)))
+    #print("Total: $" + str(sum(Total)))
+    newline3 = "Total Votes: " + str(num_of_votes)
+    newline4 = "---------------------"
+    #print("Average of changes in Profit/Losses: $", str(formatted_total_average))
+    newline5 = "Khan: " + str("{:.0%}".format(percentage_of_Votes_Khan)) + "(" + str(khan_counter) + ")"
+    newline6 = "Correy: " + str("{:.0%}".format(percentage_of_Votes_Correy)) + "(" + str(correy_counter) + ")"
+    newline7 = "Li: " + str("{:.0%}".format(percentage_of_Votes_Li)) + "(" + str(li_counter) + ")"
+    newline8 = "O'Tooley: " + str("{:.0%}".format(percentage_of_Votes_Otooley)) + "(" + str(otooley_counter) + ")"
+    newline9 = "---------------------"
+    newline10 = "Winner is: " + winner
+    #{}\n breaks to new line
+    output_file.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(newline1,newline2,newline3, newline4,newline5,newline6,newline7,newline8,newline9,newline10))
